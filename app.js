@@ -1,29 +1,18 @@
 const express = require('express');
-const { readFile } = require('fs').promises;
 const app = express();
 const path = require("path");
 
 app.get('/index.js', function(req, res) {
-    res.sendFile(path.join(__dirname + '/client/index.js'));
+    res.sendFile(path.join(__dirname + '/client/src/index.js'));
 });
 
 app.get('/player-card/playerCard.js', function(req, res) {
-    res.sendFile(path.join(__dirname + '/client/player-card/playerCard.js'));
+    res.sendFile(path.join(__dirname + '/client/src/player-card/playerCard.js'));
 });
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/client/index.html'));
 });
-
-
-
-// app.get('/', async (req, res) => {
-//     res.send(await readFile('../client/index.html', 'utf8'))
-// })
-
-// app.use(express.static(path.join(__dirname, "server")));
-
-// app.use('../client', express.static(path.join(__dirname, 'client')));
 
 app.listen(process.env.PORT || 3000, () => console.log('LISTENING'))
 
