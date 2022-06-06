@@ -7,6 +7,10 @@ app.get('/index.js', function(req, res) {
     res.sendFile(path.join(__dirname + '/client/index.js'));
 });
 
+app.get('/player-card/playerCard.js', function(req, res) {
+    res.sendFile(path.join(__dirname + '/client/player-card/playerCard.js'));
+});
+
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/client/index.html'));
 });
