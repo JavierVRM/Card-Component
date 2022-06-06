@@ -2,20 +2,28 @@ const express = require('express');
 const app = express();
 const path = require("path");
 
-
-app.get('/', function(req, res) {
+// Get main html
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/index.html'));
 });
 
-app.get('/index.js', function(req, res) {
+// Get main js
+app.get('/index.js', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/src/index.js'));
 });
 
-app.get('/player-card/playerCard.js', function(req, res) {
+app.get('/data', (req, res) => {
+    res.sendFile(path.join(__dirname + '/data/player-stats.json'));
+})
+
+// Get styles and scripts
+app.get('/player-card/playerCard.js', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/src/player-card/playerCard.js'));
 });
-
-app.get('/style.css', function(req, res) {
+app.get('/global-methods/globalMethods.js', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/src/global-methods/globalMethods.js'));
+});
+app.get('/style.css', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/src/player-card/css/style.css'));
 });
 
