@@ -26,12 +26,28 @@ template.innerHTML = `
 `
 
 class PlayerCard extends HTMLElement {
+    playerClub = ''
+    playerImg = ''
+    playerName = ''
+    playerPosition = ''
+    playerAppearances = ''
+    playerGoals = ''
+    playerAssists = ''
+    playerGoalsPm = ''
+    playerPassesPm = ''
+    
     constructor() {
         super()
         this.attachShadow({ mode:'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-        const playersData = globalMethods.fetchData('http://localhost:3000/data')
+        const playersRawData = globalMethods.fetchData('http://localhost:3000/data')
+        const playerData = {}
+        playersRawData.then((data) => {
+            for (let player of data.players) {
+                console.log(player.player.name)
+            }
+        })
         
     }
 }

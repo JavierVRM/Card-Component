@@ -1,7 +1,7 @@
 function fetchData (url) {
-    fetch(url)
+    return fetch(url)
         .then(res => res.json())
-        .then(res => console.log(res))
+        .catch(error => console.log(error))
 }
 
 export default {fetchData}
