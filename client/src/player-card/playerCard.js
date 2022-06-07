@@ -13,7 +13,7 @@ class PlayerCard extends HTMLElement {
     playerPassesPm = ''
 
     playersRawData;
-    
+
     constructor() {
         super()
         this.attachShadow({ mode:'open' })
@@ -34,16 +34,13 @@ class PlayerCard extends HTMLElement {
             
     }
 
-
-    
-
     connectedCallback() {
         this.setSelectData();
         this.render();
     }
 
     get style() {
-        return `<style>@import '/style.css' </style>`
+        return `<style>@import './player-card/css/style.css' </style>`
     }
 
     get template () {
@@ -53,27 +50,27 @@ class PlayerCard extends HTMLElement {
                 <select class="player__card__selector">
                     <option class='option__placeholder' selected disabled hidden>Select a player...</option>
                 </select>
-                <img class="player__photo__img" src='https://tmssl.akamaized.net/images/foto/galerie/hristo-stoichkov-bei-barcelona-1575285527-27908.jpg?lm=1575285533'>
-                <img class="player__club__img" src="https://tmssl.akamaized.net/images/foto/galerie/hristo-stoichkov-bei-barcelona-1575285527-27908.jpg?lm=1575285533" alt="" class="player__club__img">
+                <img class="player__photo__img" src='/images/players_compo.jpg'>
+                <img class="player__club__img" src="/images/badges_sprite.png" alt="" class="player__club__img">
             </div>
             <div class="player__card__info">
-                <div class="player__name">Hristo Stoichkov</div>
-                <div class="player__position">Striker</div>
+                <div class="player__name">${this.playerName || "Player name"}</div>
+                <div class="player__position">Position</div>
                 <ul class="player__stats">
                     <li class="player__stat appearances">
-                    <span>appearances</span><span>10</span>
+                    <span>Appearances</span><span class='data'></span>
                     </li>
                     <li class="player__stat goals">
-                    <span>appearances</span><span>10</span>
+                    <span>Goals</span><span class='data'></span>
                     </li>
                     <li class="player__stat assists">
-                    <span>appearances</span><span>10</span>
+                    <span>Assists</span><span class='data'></span>
                     </li>
                     <li class="player__stat goalspm">
-                    <span>appearances</span><span>10</span>
+                    <span>Goals per match</span><span class='data'></span>
                     </li>
                     <li class="player__stat passespm">
-                    <span>appearances</span><span>10</span>
+                    <span>Passes per minute</span><span class='data'></span>
                     </li>
                 </ul>
             </div>
